@@ -13,6 +13,7 @@ public class PlayerInputSystem : MonoBehaviour
 		playerInputActions = new PlayerInputActions();
 		playerInputActions.PlayerControls.Move.performed += SetMove;
 		playerInputActions.PlayerControls.Camera.performed += SetCamera;
+		playerInputActions.PlayerControls.Jump.performed += SetJump;
 	}
 
 	public void SetMove(InputAction.CallbackContext context)
@@ -24,6 +25,11 @@ public class PlayerInputSystem : MonoBehaviour
 	{
 		playerCamera.cameraInput = context.ReadValue<Vector2>();
 	}
+
+	public void SetJump(InputAction.CallbackContext context)
+    {
+		playerScript.jumpInput = true;
+    }
 
 	private void OnEnable()
 	{

@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "PassThrough",
                     "id": "e92fd6bb-bfc6-47b3-b71c-db9cc2d56089",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
@@ -18,6 +18,14 @@
                     "type": "PassThrough",
                     "id": "abaa968a-5bbc-4c2e-a266-789f37300c50",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "PassThrough",
+                    "id": "86fecfd4-a092-44d8-8735-9a1ba6d151b7",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -163,6 +171,28 @@
                     "processors": "ScaleVector2(x=0.35,y=0.35)",
                     "groups": "Keyboard&Mouse",
                     "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1cda0107-2047-4d43-b0bc-bc4a489a5a4a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df9991d3-4890-40ca-9c3f-46de2fb381cb",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

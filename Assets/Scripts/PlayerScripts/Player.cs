@@ -5,14 +5,30 @@ public class Player : MonoBehaviour
 	[SerializeField] private CharacterController characterController;
 	[SerializeField] private LayerMask environmentLayerMask;
 	private const float moveSpeed = 2;
+	private const float jumpHeight = 3.5f;
 	private const float gravity = 0.1f;
 	private Vector3 velocity;
 	private bool isGrounded;
 
-	public Vector2 movementInput { get; set; }
-	
+	private bool _jumpInput = false;
 
-    void Update()
+	public Vector2 movementInput { get; set; }
+	public bool jumpInput {
+        get
+		{
+			return _jumpInput;
+        }
+        set
+        {
+            if(isGrounded)
+            {
+				_jumpInput = value;
+            }
+        }
+    }
+
+
+	void Update()
     {
 		CheckGround();
 		Gravity();
@@ -29,12 +45,16 @@ public class Player : MonoBehaviour
 
     private void Gravity()
 	{
-		if (isGrounded)
-        {	
+		if (isGrounded && jumpInput)
+        {
+			velocity.y = jumpHeight;
+			jumpInput = false;
+		}
+        else if(isGrounded && !jumpInput)
+        {
 			velocity.y = -2;
-        }
+		}
 		velocity.y -= gravity;
-
 		characterController.Move(velocity * Time.deltaTime);
     }
 
